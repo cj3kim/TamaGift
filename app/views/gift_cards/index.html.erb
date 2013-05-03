@@ -1,9 +1,9 @@
 <h1> This is the gift card report </h1>
 
 <p> <%= flash[:notice] %> </p>
+<p> You have registered <%= current_user.count_of_gift_cards %> gift cards. </p>
 
 <p> Register a new <%= link_to "gift card", new_user_gift_card_path(current_user) %> </p>
-
 
 <table border="1">
 

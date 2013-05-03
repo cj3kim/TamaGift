@@ -36,9 +36,13 @@ end
 
 When /^I click submit I create a gift card$/ do
   click_button("Create Gift card")
-  save_and_open_page
 end
 
 Then /^the page should contain this text: (.*)$/ do |text|
+  page.should have_content(text)
+end
+
+Then /^the user has registered (\d*) gift cards$/ do |number|
+  text = "You have registered #{number} gift cards."
   page.should have_content(text)
 end
