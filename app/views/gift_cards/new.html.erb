@@ -1,0 +1,22 @@
+
+<%= form_for [current_user, @gift_card] do |f| %>
+  <%= f.label :vendor, 'vendor' %>:
+  <%= f.text_field :vendor %><br />
+
+  <%= f.label :description, 'description' %>:
+  <%= f.text_field :description %><br />
+
+  <%= f.label :card_value, 'card value' %>:
+  <%= f.text_field:card_value %><br />
+
+  <%= f.label :recipient_email, 'email' %>:
+  <%= f.text_field :recipient_email %><br />
+
+  <%= f.label :recipient_first_name, 'recipient_first_name' %>:
+  <%= f.text_field :recipient_first_name %><br />
+
+  <%= f.label :recipient_last_name, 'recipient_last_name' %>:
+  <%= f.text_field :recipient_last_name %><br />
+
+  <%= f.submit %>
+<% end %>

@@ -1,5 +1,10 @@
 <h1> This is the gift card report </h1>
 
+<p> <%= flash[:notice] %> </p>
+
+<p> Register a new <%= link_to "gift card", new_user_gift_card_path(current_user) %> </p>
+
+
 <table border="1">
 
   <th>vendor</th>
