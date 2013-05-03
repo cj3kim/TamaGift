@@ -2,7 +2,7 @@ class GiftCard < ActiveRecord::Base
   belongs_to :user
   after_create :generate_card_code
 
-  attr_accessible :vendor, :card_value, :card_code,
+  attr_accessible :vendor, :card_value, :card_code, :description,
     :recipient_email, :recipient_first_name, :recipient_last_name, :user
 
   def pennies_to_dollars(pennies)
