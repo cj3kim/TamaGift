@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :gift_cards
 
-  attr_accessible :email, :dob, :first_name, :last_name
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+    :dob, :first_name, :last_name
 end

@@ -8,7 +8,6 @@ gem 'rails', '3.2.11'
 gem 'pg', '0.14.1' #relational database
 
 gem 'devise', '2.2.3' #authentication framework
-
 group :test, :development do
   gem 'rspec-rails', '2.12.2'
   gem 'cucumber-rails', '1.2.1'
