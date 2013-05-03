@@ -48,6 +48,11 @@ describe GiftCard do
       pennies = "4000"
       dollars = 40.0
       starbucks_gift_card.pennies_to_dollars(pennies).should == dollars
+
+      pennies = 40
+      dollars = 0.40
+      starbucks_gift_card.pennies_to_dollars(pennies).should == dollars
+
     end
   end
 
@@ -67,6 +72,22 @@ describe GiftCard do
       pennies = 1900
 
       turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+
+      dollars = "19.0"
+      pennies = 1900
+
+      turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+
+      dollars = 0.04
+      pennies = 4
+
+      turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+
+      dollars = ".04"
+      pennies = 4
+
+      turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+
     end
   end
 

@@ -11,6 +11,12 @@ class GiftCard < ActiveRecord::Base
     float_pennies / divisor
   end
 
+  def dollars_to_pennies(dollars)
+    float_dollars = dollars.to_f
+    multiplier = 100
+    float_dollars * multiplier
+  end
+
   def generate_card_code
     vendor_name_plus_time = "#{self.vendor} #{Time.now}"
     digest = Digest::MD5.hexdigest(vendor_name_plus_time)
