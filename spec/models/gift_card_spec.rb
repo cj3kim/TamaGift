@@ -18,6 +18,8 @@ describe GiftCard do
                        recipient_last_name: "Narusegawa")
   end
 
+  let(:turtle_gift_card) { FactoryGirl.create(:gift_card, vendor: "Tamaland", card_value: 2000) }
+
   describe "#get" do
     it "retrieve a gift card object"
   end
@@ -30,8 +32,24 @@ describe GiftCard do
     it "represents the card value in dollars rather than pennies"
   end
 
-  describe "generate_card_code" do
-    it "generates a card code by hashing the vendor name and the last gift card sequence number"
+  describe "#generate_card_code" do
+    it "generates a card code and updates the card_code attribute" do
+      vendor_name = turtle_gift_card.vendor
+      Time.stub(:now).and_return("12345")
+      card_code = "8804907b912e0de01d8f336f39ec02ee"
+
+      turtle_gift_card.card_code.should == nil
+      turtle_gift_card.generate_card_code(vendor_name)
+      turtle_gift_card.card_code.should_not == nil
+      turtle_gift_card.card_code.should == card_code
+
+      Time.stub(:now).and_return("54321")
+      card_code = "a9566f704ad504c8c98dae9c5bf7e212"
+
+      turtle_gift_card.generate_card_code(vendor_name)
+      turtle_gift_card.card_code.should_not == nil
+      turtle_gift_card.card_code.should == card_code
+    end
   end
 
 end

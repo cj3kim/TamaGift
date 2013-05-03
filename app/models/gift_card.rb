@@ -13,6 +13,9 @@ class GiftCard < ActiveRecord::Base
   def card_value_in_dollars
   end
 
-  def generate_card_code
+  def generate_card_code(vendor_name)
+    vendor_plus_time = "#{vendor_name} #{Time.now}"
+    digest = Digest::MD5.hexdigest(vendor_plus_time)
+    update_attribute(:card_code, digest)
   end
 end
