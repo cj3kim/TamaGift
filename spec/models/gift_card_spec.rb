@@ -62,31 +62,37 @@ describe GiftCard do
       pennies = 1053
 
       turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+      turtle_gift_card.dollars_to_pennies(dollars).class.should == Fixnum
 
       dollars = 20.23
       pennies = 2023
 
       turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+      turtle_gift_card.dollars_to_pennies(dollars).class.should == Fixnum
 
       dollars = 19.0
       pennies = 1900
 
       turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+      turtle_gift_card.dollars_to_pennies(dollars).class.should == Fixnum
 
       dollars = "19.0"
       pennies = 1900
 
       turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+      turtle_gift_card.dollars_to_pennies(dollars).class.should == Fixnum
 
       dollars = 0.04
       pennies = 4
 
       turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+      turtle_gift_card.dollars_to_pennies(dollars).class.should == Fixnum
 
       dollars = ".04"
       pennies = 4
 
       turtle_gift_card.dollars_to_pennies(dollars).should == pennies
+      turtle_gift_card.dollars_to_pennies(dollars).class.should == Fixnum
 
     end
   end
