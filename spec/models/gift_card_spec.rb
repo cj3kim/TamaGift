@@ -1,8 +1,21 @@
 require 'spec_helper'
 
 describe GiftCard do
+  let(:user_one) do 
+    FactoryGirl.create(:user, 
+                       email: "starbucks_fiend@gmail.com",
+                       first_name: "Keitaro",
+                       last_name:"Urashima") 
+  end
 
-  before(:each) do 
+  let(:starbucks_gift_card) do 
+    FactoryGirl.create(:gift_card,
+                       vendor: "Starbucks",
+                       card_value: 2000,
+                       card_code: nil ,
+                       recipient_email: "narusegawa@tokyo.edu",
+                       recipient_first_name: "Naru",
+                       recipient_last_name: "Narusegawa")
   end
 
   describe "#get" do
