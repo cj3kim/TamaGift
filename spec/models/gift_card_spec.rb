@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe GiftCard do
+
+  let!(:user) { FactoryGirl.create(:user, email: "bak@choy.com", password: "asdfasdfasdfa") }
   let(:starbucks_gift_card) do 
     FactoryGirl.create(:gift_card,
                        vendor: "Starbucks",
@@ -8,10 +10,11 @@ describe GiftCard do
                        card_code: nil ,
                        recipient_email: "narusegawa@tokyo.edu",
                        recipient_first_name: "Naru",
-                       recipient_last_name: "Narusegawa")
+                       recipient_last_name: "Narusegawa",
+                       user: user)
   end
 
-  let(:turtle_gift_card) { FactoryGirl.create(:gift_card, vendor: "Tamaland", card_value: 2000) }
+  let(:turtle_gift_card) { FactoryGirl.create(:gift_card, vendor: "Tamaland", card_value: 2000, user: user) }
 
   describe "#after_create" do 
     context "when a gift card is created" do
