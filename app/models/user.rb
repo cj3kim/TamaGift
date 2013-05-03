@@ -1,0 +1,4 @@
+class User < ActiveRecord::Base
+  attr_accessible :email, :dob, :first_name, :last_name
+
+end
