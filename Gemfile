@@ -14,6 +14,8 @@ group :test, :development do
   gem 'factory_girl_rails', '4.1.0'
   gem 'awesome_print', '1.1.0'
   gem 'looksee', '1.0.3'
+  gem 'database_cleaner', '0.7.0'
+  gem 'launchy', '2.1.2'
 end
 
 
