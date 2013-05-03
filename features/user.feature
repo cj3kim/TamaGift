@@ -11,5 +11,3 @@ Feature: User
      Then the page should contain this text: kaoru
      Then the page should contain this text: su
 
-
-

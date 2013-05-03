@@ -8,5 +8,6 @@ FactoryGirl.define do
     f.recipient_email nil
     f.recipient_first_name nil
     f.recipient_last_name nil
+    f.association :user
   end
 end
