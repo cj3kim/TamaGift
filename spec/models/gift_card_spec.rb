@@ -28,8 +28,20 @@ describe GiftCard do
     it "generates a card code"
   end
 
-  describe "#card_value_in_dollars" do
-    it "represents the card value in dollars rather than pennies"
+  describe "#pennies_to_dollars" do
+    it "returns a float representation of pennies in dollars" do
+      pennies = 5000
+      dollars = 50.0
+      starbucks_gift_card.pennies_to_dollars(pennies).should == dollars
+
+      pennies = 2012
+      dollars = 20.12
+      starbucks_gift_card.pennies_to_dollars(pennies).should == dollars
+
+      pennies = 3050
+      dollars = 30.5
+      starbucks_gift_card.pennies_to_dollars(pennies).should == dollars
+    end
   end
 
   describe "#generate_card_code" do

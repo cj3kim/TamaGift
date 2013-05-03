@@ -10,7 +10,10 @@ class GiftCard < ActiveRecord::Base
   def create
   end
 
-  def card_value_in_dollars
+  def pennies_to_dollars(pennies)
+    float_pennies = pennies.to_f #pennies is an integer value
+    divisor = 100
+    float_pennies / divisor
   end
 
   def generate_card_code(vendor_name)
