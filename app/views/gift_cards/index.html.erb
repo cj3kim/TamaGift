@@ -17,7 +17,7 @@
   <% @gift_cards.each do |g| %>
     <tr>
       <td><%= g.vendor %></td>
-      <td><%= g.card_value %></td>
+      <td><%= number_to_currency(g.card_value_in_dollars) %></td>
       <td><%= g.description %></td>
       <td><%= g.recipient_email %></td>
       <td><%= g.recipient_first_name %></td>
