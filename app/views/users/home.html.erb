@@ -5,7 +5,8 @@
 
 
 <% if user_signed_in? %>
-  <%= link_to "Buy a gift card!" %>
+
+  <%= link_to "My Dashboard", user_gift_cards_path(current_user) %>
 <% else %>
 
 <% end %>

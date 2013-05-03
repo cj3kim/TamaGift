@@ -1,0 +1,22 @@
+<h1> This is the gift card report </h1>
+
+<table border="1">
+
+  <th>vendor</th>
+  <th>card_value</th>
+  <th>description</th>
+  <th>email</th>
+  <th>first_name</th>
+  <th>last_name</th>
+
+  <% @gift_cards.each do |g| %>
+    <tr>
+      <td><%= g.vendor %></td>
+      <td><%= g.card_value %></td>
+      <td><%= g.description %></td>
+      <td><%= g.recipient_email %></td>
+      <td><%= g.recipient_first_name %></td>
+      <td><%= g.recipient_last_name %></td>
+    </tr>
+  <% end %>
+</table>
