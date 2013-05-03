@@ -4,7 +4,7 @@ class GiftCardsController < ApplicationController
   end
 
   def new
-    @gift_card = current_user.gift_cards.build
+    @gift_card = GiftCard.new
   end
 
   def create
