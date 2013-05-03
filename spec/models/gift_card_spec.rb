@@ -45,25 +45,18 @@ describe GiftCard do
 
   describe "#generate_card_code" do
     it "generates a card code and updates the card_code attribute" do
-      current_time = Time.now
+      current_time_one = Time.parse "2013-05-03 12:00:00 -0700"
+      current_time_two = Time.parse "2013-05-04 12:23:00 -0700" 
       vendor_name = turtle_gift_card.vendor
 
-      #Stubbing Time.now makes update_attribute to error 
-
-      number_string = "12345"
-      number_string.should_receive(:utc).and_return(current_time)
-      Time.stub(:now).and_return(number)
-      card_code = "8804907b912e0de01d8f336f39ec02ee"
-
+      Time.stub(:now).and_return(current_time_one)
+      card_code = "99bc73644c17d98f680f61de3c1de49e"
       turtle_gift_card.generate_card_code
 
       turtle_gift_card.card_code.should == card_code
 
-      number_string = "54321"
-      number_string.should_receive(:utc).and_return(current_time)
-      Time.stub(:now).and_return(number)
-      card_code = "a9566f704ad504c8c98dae9c5bf7e212"
-
+      Time.stub(:now).and_return(current_time_two)
+      card_code = "3118172111dacf9cae5cbfcb79da02e3"
       turtle_gift_card.generate_card_code
 
       turtle_gift_card.card_code.should == card_code
