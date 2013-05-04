@@ -11,12 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130503174812) do
+ActiveRecord::Schema.define(:version => 20130504015236) do
 
   create_table "gift_cards", :force => true do |t|
     t.string   "vendor"
     t.integer  "card_value"
-    t.string   "card_code"
     t.string   "recipient_email"
     t.string   "recipient_first_name"
     t.string   "recipient_last_name"

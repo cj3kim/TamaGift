@@ -1,7 +1,6 @@
 class GiftCard < ActiveRecord::Base
   belongs_to :user
   before_create :convert_card_value_to_pennies
-  after_create :generate_card_code
 
   attr_accessible :vendor, :card_value, :card_code, :description,
     :recipient_email, :recipient_first_name, :recipient_last_name, :user
@@ -25,11 +24,5 @@ class GiftCard < ActiveRecord::Base
     multiplier = 100
     pennies = float_dollars * multiplier
     pennies.to_i
-  end
-
-  def generate_card_code
-    vendor_name_plus_time = "#{self.vendor} #{Time.now}"
-    digest = Digest::MD5.hexdigest(vendor_name_plus_time)
-    update_attribute(:card_code, digest)
   end
 end

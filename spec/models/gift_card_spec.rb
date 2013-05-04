@@ -16,20 +16,6 @@ describe GiftCard do
 
   let(:turtle_gift_card) { FactoryGirl.create(:gift_card, vendor: "Tamaland", card_value: 2000, user: user) }
 
-  describe "#after_create" do 
-    context "when a gift card is created" do
-      it "generates a card code" do
-        gift_card = GiftCard.new(vendor: "Sushi")
-
-        gift_card.card_code.should == nil
-
-        gift_card.save
-
-        gift_card.card_code.class.should == String
-      end
-    end
-  end
-
   describe "#pennies_to_dollars" do
     it "returns a float representation of pennies in dollars" do
       pennies = 5000
@@ -97,26 +83,6 @@ describe GiftCard do
       turtle_gift_card.dollars_to_pennies(dollars).should == pennies
       turtle_gift_card.dollars_to_pennies(dollars).class.should == Fixnum
 
-    end
-  end
-
-  describe "#generate_card_code" do
-    it "generates a card code and updates the card_code attribute" do
-      current_time_one = Time.parse "2013-05-03 12:00:00 -0700"
-      current_time_two = Time.parse "2013-05-04 12:23:00 -0700" 
-      vendor_name = turtle_gift_card.vendor
-
-      Time.stub(:now).and_return(current_time_one)
-      card_code = "99bc73644c17d98f680f61de3c1de49e"
-      turtle_gift_card.generate_card_code
-
-      turtle_gift_card.card_code.should == card_code
-
-      Time.stub(:now).and_return(current_time_two)
-      card_code = "3118172111dacf9cae5cbfcb79da02e3"
-      turtle_gift_card.generate_card_code
-
-      turtle_gift_card.card_code.should == card_code
     end
   end
 end
