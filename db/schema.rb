@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512062641) do
+ActiveRecord::Schema.define(:version => 20130512073401) do
 
   create_table "gift_cards", :force => true do |t|
     t.string   "vendor"
